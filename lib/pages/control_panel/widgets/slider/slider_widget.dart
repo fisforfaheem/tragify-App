@@ -63,8 +63,8 @@ class SliderWidget extends StatelessWidget {
                 initialValue: angleRange(progressVal, kMinDegree, kMaxDegree),
                 appearance: CircularSliderAppearance(
                   spinnerMode: false,
-                  startAngle: 180,
-                  angleRange: 180,
+                  startAngle: 0,
+                  angleRange: 360,
                   size: kDiameter - 30,
                   customWidths: CustomSliderWidths(
                     trackWidth: 20,
@@ -99,7 +99,7 @@ class SliderWidget extends StatelessWidget {
                           child: Row(
                             children: const [
                               Text(
-                                "o",
+                                "",
                                 style: TextStyle(
                                     height: 0,
                                     letterSpacing: 2,
@@ -108,7 +108,7 @@ class SliderWidget extends StatelessWidget {
                                     fontWeight: FontWeight.normal),
                               ),
                               Text(
-                                "C",
+                                "M",
                                 style: TextStyle(
                                     height: 0,
                                     fontSize: 16,

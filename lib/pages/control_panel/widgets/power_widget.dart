@@ -16,7 +16,7 @@ class PowerWidget extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           const Text(
-            "Power",
+            "Notifications",
             style: TextStyle(
                 fontSize: 15, color: Colors.white, fontWeight: FontWeight.w500),
           ),

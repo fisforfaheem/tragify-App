@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:iot_ui_challenge/pages/control_panel/control_panel_page.dart';
+import 'package:iot_ui_challenge/pages/home/bluetooth.dart';
 import 'package:iot_ui_challenge/pages/home/home_page.dart';
 
 void main() {
@@ -17,7 +18,7 @@ class _MyAppState extends State<MyApp> {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Flutter IoT UI Challenge',
+      title: 'Tragify',
       theme: ThemeData(
           fontFamily: "Poppins",
           sliderTheme: const SliderThemeData(
@@ -27,6 +28,7 @@ class _MyAppState extends State<MyApp> {
             overlayShape: RoundSliderOverlayShape(overlayRadius: 15.0),
           )),
       home: const HomePage(),
+      // home: const FlutterBlueApp(),
     );
   }
 }

@@ -17,7 +17,7 @@ class TempWidget extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
             const Text(
-              "Temp",
+              "Set Distance",
               style: TextStyle(
                   fontSize: 15,
                   color: Colors.white,
@@ -30,20 +30,20 @@ class TempWidget extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 const Text(
-                  '16°C',
+                  '5M',
                   style: TextStyle(color: Colors.white),
                 ),
                 Expanded(
                   child: Slider(
-                      min: 16,
-                      max: 30,
+                      min: 5,
+                      max: 100,
                       value: temp,
                       activeColor: Colors.white,
                       inactiveColor: Colors.white30,
                       onChanged: changeTemp),
                 ),
                 const Text(
-                  '30°C',
+                  '100M',
                   style: TextStyle(color: Colors.white),
                 ),
               ],

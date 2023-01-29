@@ -1,7 +1,13 @@
+import 'dart:math';
+
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_blue_plus/flutter_blue_plus.dart';
 import 'package:iot_ui_challenge/model/device_model.dart';
 import 'package:iot_ui_challenge/pages/home/widgets/devices.dart';
 import 'package:iot_ui_challenge/utils/string_to_color.dart';
+
+FlutterBluePlus flutterBlue = FlutterBluePlus.instance;
 
 class HomePage extends StatefulWidget {
   const HomePage({Key? key}) : super(key: key);
@@ -10,31 +16,42 @@ class HomePage extends StatefulWidget {
   _HomePageState createState() => _HomePageState();
 }
 
+
+
 class _HomePageState extends State<HomePage> {
+
+
   List<DeviceModel> devices = [
     DeviceModel(
-        name: 'Smart Spotlight',
+        name: 'Ring Device',
         isActive: true,
         color: "#ff5f5f",
         icon: 'assets/svg/light.svg'),
     DeviceModel(
-        name: 'Smart AC',
+        name: 'Tragify',
         isActive: true,
         color: "#7739ff",
         icon: 'assets/svg/ac.svg'),
     DeviceModel(
-        name: 'Smart TV',
-        isActive: false,
-        color: "#c9c306",
-        icon: 'assets/svg/tv.svg'),
-    DeviceModel(
-        name: 'Smart Sound',
-        isActive: false,
-        color: "#c207db",
-        icon: 'assets/svg/speaker.svg'),
+        name: 'Selected Device',
+        isActive: true,
+        color: "#7739ff",
+        icon: 'assets/svg/ac.svg'),
   ];
 
-  @override
+  Future Blue() async {
+    var scanDevices = flutterBlue.scan().listen((scanResult) {
+
+    });
+    return print(scanDevices);
+  }
+  // Future<void> main() async {
+  //   print('Fetching user order...');
+  //   print(await Blue());
+  // }
+
+
+@override
   Widget build(BuildContext context) {
     return Scaffold(
       body: Container(
@@ -46,6 +63,7 @@ class _HomePageState extends State<HomePage> {
               end: Alignment.bottomRight,
               colors: <Color>[Color(0xFFfce2e1), Colors.white]),
         ),
+
         child: Padding(
           padding: const EdgeInsets.fromLTRB(20, 15, 20, 0),
           child: SafeArea(
@@ -56,7 +74,7 @@ class _HomePageState extends State<HomePage> {
                   crossAxisAlignment: CrossAxisAlignment.center,
                   children: const [
                     Text(
-                      "Hi,Dimest",
+                      "Hi,Kate",
                       style: TextStyle(
                           fontSize: 28,
                           color: Colors.black,
@@ -125,13 +143,13 @@ class _HomePageState extends State<HomePage> {
                           Expanded(
                             child: GridView.builder(
                                 padding: const EdgeInsets.only(top: 10, bottom: 20),
-                                
+
                                 gridDelegate:
-                                    const SliverGridDelegateWithMaxCrossAxisExtent(
-                                        maxCrossAxisExtent: 200,
-                                        childAspectRatio: 3 / 4,
-                                        crossAxisSpacing: 20,
-                                        mainAxisSpacing: 20),
+                                const SliverGridDelegateWithMaxCrossAxisExtent(
+                                    maxCrossAxisExtent: 200,
+                                    childAspectRatio: 3 / 4,
+                                    crossAxisSpacing: 20,
+                                    mainAxisSpacing: 20),
                                 itemCount: devices.length,
                                 itemBuilder: (BuildContext ctx, index) {
                                   return Devices(
@@ -142,11 +160,28 @@ class _HomePageState extends State<HomePage> {
                                     onChanged: (val) {
                                       setState(() {
                                         devices[index].isActive =
-                                            !devices[index].isActive;
+                                        !devices[index].isActive;
                                       });
                                     },
                                   );
                                 }),
+                          ),
+
+                          Padding(
+                            padding: const EdgeInsets.all(10.0),
+                            child: Stack(
+                              alignment: Alignment.center,
+                              children: [
+                                Image.asset("assets/images/cadrant.png"),
+                                Transform.rotate(
+                                  angle: ((pi/180) * -1),
+                                  child: Image.asset(
+                                    "assets/images/compass.png",
+                                    scale: 1.1,
+                                  ),
+                                ),
+                              ],
+                            ),
                           ),
                         ],
                       ),

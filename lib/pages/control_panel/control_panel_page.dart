@@ -80,7 +80,7 @@ class _ControlPanelPageState extends State<ControlPanelPage>
                   padding: const EdgeInsets.fromLTRB(15, 15, 15, 0),
                   child: Column(
                     children: [
-                      const CustomAppBar(title: "Smart AC"),
+                      const CustomAppBar(title: "Smart Controls"),
                       const SizedBox(
                         height: 20,
                       ),

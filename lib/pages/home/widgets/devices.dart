@@ -34,7 +34,7 @@ class Devices extends StatelessWidget {
         openBuilder: (BuildContext context, VoidCallback _) {
           return ControlPanelPage(tag: name);
         },
-        tappable: name == "Smart AC" ? true : false,
+        tappable: name == "Tragify" ? true : false,
         closedBuilder: (BuildContext _, VoidCallback openContainer) {
           return AnimatedContainer(
             duration: const Duration(milliseconds: 300),
